@@ -34,6 +34,7 @@ function clickBtn(button = null) {
         }
  */
         var opacity = document.getElementsByClassName("opacity");
+        // var active = document.getElementsByClassName("active");
         console.log("opa=" + opacity[0].style.opacity);
         opacity[0].style.opacity = menuOnOff;
         console.log("opa=" + opacity[0].style.opacity);
@@ -46,4 +47,18 @@ function clickBtn(button = null) {
     //     });
     //     console.log(button);
     // }
+}
+
+function activate() {
+    var o1 = document.getElementsByClassName("opacity");
+    for (var k1 in o1) {
+        if (o1[k1].style !== null) {
+            o1[k1].style.opacity = menuOnOff;
+        }
+        for (var k2 in o1[k1]) {
+            if (o1[k1][k2] && o1[k1][k2].style && o1[k1][k2].style.opacity !== null) {
+                o1[k1][k2].style.opacity = menuOnOff;
+            }
+        }
+    }
 }

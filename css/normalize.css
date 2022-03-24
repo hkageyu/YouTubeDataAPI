@@ -3,6 +3,16 @@
   box-sizing: border-box;
 }
 
+.opacity > * a {
+    height: 0;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.opacity.active {
+    height: 100%;
+    opacity: 1;
+}
+
 .nav-list {
     position: absolute;
     top: 0;
@@ -23,14 +33,4 @@
     padding: 10px 1em;
     text-decoration: navy;
     color: white;
-}
-
-.opacity{
-    height: 0;
-    opacity: 0;
-    transition: all .5s ease;
-}
-.opacity.active{
-    height: 100%;
-    opacity: 1;
 }
