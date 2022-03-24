@@ -9,7 +9,7 @@ const MENU_OFF = "0";
 var menuOnOff = MENU_OFF;
 
 function clickBtn(button = null) {
-    if (button == null) {
+    console.log("test");
         var navToggle = document.getElementById("nav-toggle");
         if (menuOnOff == MENU_OFF) {
             menuOnOff = MENU_ON;
@@ -23,8 +23,8 @@ function clickBtn(button = null) {
             navToggle.innerHTML = "●";
             //navToggle.display = MENU_OFF;
         }
-        var navList = document.getElementById("nav-list");
 /*
+        var navList = document.getElementById("nav-list");
         var navi = navList.getElementsByClassName("nav");
         for (var key in navi) {
             if (navi[key] && navi[key].style) { // ←解決する演算子.?的なのがあったはず
@@ -33,9 +33,11 @@ function clickBtn(button = null) {
             }
         }
  */
-        var opa = navList.getElementsByClassName("opacity");
-        console.log("opa=" + opa);
-    }
+        var opacity = document.getElementsByClassName("opacity");
+        console.log("opa=" + opacity[0].style.opacity);
+        opacity[0].style.opacity = menuOnOff;
+        console.log("opa=" + opacity[0].style.opacity);
+//   }
     // else {
     //     const elements = document.getElementsByClassName("navi");
     //     Array.prototype.forEach.call(elements, function (e1) {
