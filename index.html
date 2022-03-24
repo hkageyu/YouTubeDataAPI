@@ -11,13 +11,15 @@
     <header>
         <nav class="nav">
             <button type="button" id="nav-toggle" class="nav-toggle" onclick="clickBtn(null)">●</button>
-            <ul id="nav-list" class="nav-list">
-                <li><a class="navi home" onClick="clickBtn('home')">HOME</a></li>
-                <li><a class="navi information" onClick="clickBtn('information')">INFORMATION</a></li>
-                <li><a class="navi products" onClick="clickBtn('products')">PRODUCTS</a></li>
-                <li><a class="navi about" onClick="clickBtn('about')">ABOUT</a></li>
-                <li><a class="navi inquiry" onClick="clickBtn('inquiry')">INQUIRY</a></li>
-            </ul>
+            <div class="opacity">
+                <ul id="nav-list" class="nav-list">
+                    <li><a class="nav home">HOME</a></li>
+                    <li><a class="nav information">INFORMATION</a></li>
+                    <li><a class="nav products">PRODUCTS</a></li>
+                    <li><a class="nav about">ABOUT</a></li>
+                    <li><a class="nav inquiry">INQUIRY</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <script src="./js/youtubeDataApi.js"></script>
