@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Youtube Data API</title>
+    <meta name="description" content="Youtube Data API Sample Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <button type="button" id="nav-toggle" class="nav-toggle" onclick="clickBtn(null)">●</button>
+            <ul id="nav-list" class="nav-list">
+                <li><a class="navi home" onClick="clickBtn('home')">HOME</a></li>
+                <li><a class="navi information" onClick="clickBtn('information')">INFORMATION</a></li>
+                <li><a class="navi products" onClick="clickBtn('products')">PRODUCTS</a></li>
+                <li><a class="navi about" onClick="clickBtn('about')">ABOUT</a></li>
+                <li><a class="navi inquiry" onClick="clickBtn('inquiry')">INQUIRY</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="./js/youtubeDataApi.js"></script>
+</body>
+</html>
