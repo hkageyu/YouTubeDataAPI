@@ -38,7 +38,7 @@ function clickBtn(button = null) {
         console.log("opa=" + opacity[0].style.opacity);
         opacity[0].style.opacity = menuOnOff;
         console.log("opa=" + opacity[0].style.opacity);
-//   }
+
     // else {
     //     const elements = document.getElementsByClassName("navi");
     //     Array.prototype.forEach.call(elements, function (e1) {
@@ -52,13 +52,18 @@ function clickBtn(button = null) {
 function activate() {
     var o1 = document.getElementsByClassName("opacity");
     for (var k1 in o1) {
-        if (o1[k1].style !== null) {
+        if (o1[k1].style && o1[k1].style.opacity !== null) {
+            console.log("o1[k1].style.opacity=" + o1[k1].style.opacity);
             o1[k1].style.opacity = menuOnOff;
+            o1[k1].style.listStyle = "";
+            o1[k1].style.padding = "";
+   //            o1[k1].style.height = "100%";
         }
-        for (var k2 in o1[k1]) {
-            if (o1[k1][k2] && o1[k1][k2].style && o1[k1][k2].style.opacity !== null) {
-                o1[k1][k2].style.opacity = menuOnOff;
-            }
-        }
+        // for (var k2 in o1[k1]) {
+        //     if (o1[k1][k2] && o1[k1][k2].style && o1[k1][k2].style.opacity !== null) {
+        //         console.log("o1[k1][k2].style=" + o1[k1][k2].style);
+        //         o1[k1][k2].style.opacity = menuOnOff;
+        //     }
+        // }
     }
 }
