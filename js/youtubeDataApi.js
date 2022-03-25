@@ -67,3 +67,29 @@ function activate() {
         // }
     }
 }
+
+// menu 表示
+const menu = document.getElementsByClassName("menu");
+
+function toggle() {
+    this.classList.toggle("is-active");
+    var contents = this.nextElementSibling;
+    while (contents) {
+        var flag = false;
+        for (var i = 0; i < contents.classList.length; i++) {
+            if (contents.classList[i] == 'contents') {
+                flag = true;
+            }
+        }
+        if (flag) {
+            console.log("contents=" + contents.toString());
+            contents.classList.toggle("is-open");
+        }
+        console.log("contents=" + contents.className);
+        contents = contents.nextElementSibling;
+    }
+}
+
+for (let i = 0; i < menu.length; i++) {
+    menu[i].addEventListener("click", toggle);
+}
