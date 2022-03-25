@@ -1,8 +1,28 @@
 @charset "UTF-8";
 *{
   box-sizing: border-box;
-  background:  rgba(125, 125, 125, 0.95);
+  background: #6aa0e7;
 }
+.header {
+    position: fixed;
+    display: inline;
+    list-style: none; 
+/*    margin-left: 100px;*/
+    padding: 200px 0 20px;
+    padding-top: 0px;
+    padding-right: 200px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+
+    margin        : auto;                 /* サンプル用 中央寄せ */
+    box-sizing    : border-box;           /* 罫線も含む長さ      */
+    width         : 250px;                /* BOXの幅             */
+    height        : 600px;                /* BOXの高さ           */
+    background    : #6aa0e7;              /* BOXの背景色         */
+    border        : 3px solid #35557f;    /* 枠線の指定          */
+    border-radius : 36px 0px;               /* 角丸の指定          */
+}
+
 .contents {
     text-align: center;
     line-height: 0;
@@ -12,7 +32,8 @@
     transition-duration: 0.4s;
 }
 .contents.is-open {
-    border: 1px solid black;
+    border: none;
+    background:  #b6cceef2;
     padding: 10px;
     line-height: normal;
     height: auto;
@@ -47,5 +68,6 @@
     opacity: 0;
     padding: 10px 1em;
     text-decoration: navy;
+    background    : #B0C4DE;              /* BOXの背景色         */
     color: white;
 }
