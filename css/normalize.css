@@ -73,6 +73,25 @@
         background    : #B0C4DE;              /* BOXの背景色         */
         color: white;
     }
+
+    .cont-slideshow {
+        display: none;
+        width: 400px;
+        height: 250px;
+        padding: 200px;
+    }
+    .cont-slideshow > img {
+        width: 400px;
+        height: 250px;
+        margin: 50px;
+    }
+
+    .cont-youtube {
+        display: none;
+        width: 400px;
+        height: 250px;
+        padding: 200px;
+    }
 }
 
 @media screen and (max-width: 480px) {

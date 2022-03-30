@@ -9,25 +9,25 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
+        <nav id="nav" class="nav">
             <button type="button" id="nav-toggle" class="active nav-toggle" onclick="clickBtn(null); activate()">●</button>
                 <ul id="nav-list" class="opacity nav-list">
                     <li>
                         <a class="opacity menu">HOME</a>
-                        <div class="contents">コンテンツ1</div>
-                        <div class="contents">コンテンツ2</div>
+                        <div class="contents">コンテンツ</div>
+                        <div class="contents">コンテンツ</div>
                     </li>
                     <li>
                         <a class="opacity menu">INFORMATION</a>
-                        <div class="contents">コンテンツ1</div>
+                        <div class="contents">コンテンツ</div>
                     </li>
                     <li>
                         <a class="opacity menu">PRODUCTS</a>
-                        <div class="contents">コンテンツ1</div>
-                        <div class="contents">コンテンツ2</div>
-                        <div class="contents">コンテンツ3</div>
-                        <div class="contents">コンテンツ4</div>
-                        <div class="contents">コンテンツ5</div>
+                        <div class="contents cont-slideshow">スライドショー</div>
+                        <div class="contents cont-youtube">Youtube</div>
+                        <div class="contents three">コンテンツ3</div>
+                        <div class="contents four">コンテンツ4</div>
+                        <div class="contents five">コンテンツ5</div>
                     </li>
                     <li><a class="opacity menu">ABOUT</a></li>
                     <li>
@@ -42,6 +42,15 @@
             </ul>
         </nav>
     </header>
+
+    <section id="slide-show" class="cont-slideshow">
+        <img src="img/image1.jpg" id="slide_img" class="slider" />
+    </section>
+
+    <section id="youtube" class="cont-youtube">
+        <div id="player"></div>
+    </section>
+
     <script src="./js/youtubeDataApi.js"></script>
 </body>
 </html>

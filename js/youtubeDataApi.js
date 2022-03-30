@@ -75,12 +75,11 @@ function activate() {
 
 // menu 表示
 const menu = document.getElementsByClassName("menu");
-
 /**
  * @toggle
  */
 function toggle() {
-    var list = Array();
+    var list = Array(); // 多分 List に含まれてるのを検索する関数があると思う
     for (var i = 0; i < this.classList.length; i++) {
         list[i] = this.classList[i];
     }
@@ -104,7 +103,14 @@ function toggle() {
      }
      else if (list.includes("contents")) {
         var contents = this.classList;
+        var list = Array(); // 多分 List に含まれてるのを検索する関数があると思う
+        for (var i = 0; i < contents.length; i++) {
+            list[i] = contents[i];
+        }
         while (contents) {
+            if (list.includes("cont-slideshow")) {
+                slideClick();
+            }
             console.log("contents=" + contents);
             contents = contents.nextElementSibling;
         }
@@ -124,7 +130,7 @@ for (let i = 0; i < menu.length; i++) {
  * className="contents" に click イベントリスナーを付ける
  */
 const contents = document.getElementsByClassName("contents");
- for (let i = 0; i < contents.length; i++) {
+for (let i = 0; i < contents.length; i++) {
     contents[i].addEventListener("click", toggle);
 }
 
@@ -150,5 +156,49 @@ let inqMsg = document.getElementById('inqMsg');
 let checkButton = document.getElementById('inqBtn');
 inqBtn.addEventListener('click',  buttonClick);
 
+/**
+ * スライドショウ
+ * 
+ * suspend: これを設定すると停止
+ */
+function slideClick(suspend = false) {
+    slideShow = !slideShow;
+    let timerId = null;
+    if (suspend== true) {
+        clearInterval(timerId);
+        timerId = null;
+        document.getElementById("slide-show").classList.toggle("is-opend");
+    }
+    else if (!timerId && slideShow == true) {
+        document.getElementById("nav-list").classList.toggle("is-open");
+        document.getElementById("slide-show").style.display = "block";
+        const img_src = ["img/imgae1.jpg", "img/image2.jpg", "img/image3.jpg"];
+        let num = 0;
 
-  
+        function slide_time() {
+            if (num == img_src.length) {
+                num = 1;
+            }
+            else {
+                num++;
+            }
+            console.log("img=" + num);
+            if (img_src[num] != null) {
+                document.getElementById("slide_img").src = img_src[num];
+                document.getElementById("slide_img").width = "100%";
+                document.getElementById("slide_img").height = "100%";
+            }
+        }
+        timerId = setInterval(slide_time, 1000);
+    }
+    else {
+        clearInterval(timerId);
+        timerId = null;
+    }
+}
+
+let slideShow = false;
+let slideButton = document.getElementById('inqBtn');
+inqBtn.addEventListener('click',  slideClick);
+
+
