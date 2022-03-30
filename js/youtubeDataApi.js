@@ -16,11 +16,34 @@ function clickBtn(button = null) {
         // オンになったら
         navToggle.innerHTML = "◯";
         //navToggle.display = MENU_ON;
+        var header = document.getElementById("header");
+        header.style.paddingTop = "0px";
+        header.style.paddingRight = "0px";
+        header.style.paddingBottom = "0px";
+        header.style.paddingLeft = "0px";
+        header.style.boxSizing = "border-box";
+        header.style.width = "250px";
+        header.style.height = "600px";
+        header.style.background = "#6aa0e7";
+        header.style.border = "3px solid #35557f";
+        header.style.borderRadius = "36px 0px";
     }
     else {
         menuOnOff = MENU_OFF;
         // オフになったら
         navToggle.innerHTML = "●";
+        var header = document.getElementById("header");
+        header.style.paddingTop = "0px";
+        header.style.paddingRight = "200px";
+        header.style.paddingBottom = "5px";
+        header.style.paddingLeft = "0px";
+        header.style.boxSizing = "border-box";
+        header.style.width = "250px";
+        header.style.height = "600px";
+        header.style.background = "#ffffff";
+        header.style.border = "3px solid #ffffff";
+        header.style.borderRadius = "0px 0px";
+
         //navToggle.display = MENU_OFF;
     }
 /*
@@ -202,3 +225,34 @@ let slideShow = false;
 let btnSlide = document.getElementById('btnSlide');
 btnSlide.addEventListener('click',  slideClick);
 
+
+// youtube
+// function youtubeClick() {
+//     document.getElementById("youtube").style.display = "block";
+//     var c = document.getElementById("youtube");
+//     c = c.nextElementSibling;
+//     (c.classList)[0].style.display = "block";
+
+//     // 2. This code loads the IFrame Player API code asynchronously.
+//     var tag = document.createElement('script');
+
+//     tag.src = "https://www.youtube.com/iframe_api";
+//     var firstScriptTag = document.getElementsByTagName('script')[0];
+//     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+//     // API読み込み後にプレーヤーの設定
+//     var player;
+//     function onYouTubeIframeAPIReady() {
+//         player = new YT.Player('player');
+//     }
+    
+//     // ボタンクリック時の操作
+// //    document.getElementById('play').addEventListener('click', function() {
+//     //     player.playVideo();
+//     // }, false);
+// }
+
+
+// let youtube = false;
+// let btnYoutube = document.getElementById('btnYoutube');
+// btnYoutube.addEventListener('click',  youtubeClick);

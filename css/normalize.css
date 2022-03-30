@@ -10,19 +10,20 @@
         display: inline;
         list-style: none; 
     /*    margin-left: 100px;*/
-        padding: 200px 0 20px;
+        /*padding: 200px 0 20px;*/
         padding-top: 0px;
-        padding-right: 200px;
-        padding-bottom: 5px;
+        padding-right: 0px;
+        padding-bottom: 0px;
         padding-left: 0px;
 
-        margin        : auto;                 /* サンプル用 中央寄せ */
-        box-sizing    : border-box;           /* 罫線も含む長さ      */
-        width         : 250px;                /* BOXの幅             */
-        height        : 600px;                /* BOXの高さ           */
-        background    : #6aa0e7;              /* BOXの背景色         */
-        border        : 3px solid #35557f;    /* 枠線の指定          */
-        border-radius : 36px 0px;               /* 角丸の指定          */
+/*        margin        : auto;
+        box-sizing    : border-box;
+        width         : 250px;
+        height        : 600px;
+        background    : #6aa0e7;
+        border        : 3px solid #35557f;
+        border-radius : 36px 0px;
+ */
     }
 
     .contents {
@@ -89,6 +90,12 @@
         width: 400px;
         height: 250px;
         padding: 200px;
+    }
+
+    #youtube {
+        display: none;
+        margin-top: 0px;
+        margin-left: 200px;
     }
 }
 
