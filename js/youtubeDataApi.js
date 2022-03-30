@@ -164,13 +164,14 @@ inqBtn.addEventListener('click',  buttonClick);
 function slideClick(suspend = false) {
     slideShow = !slideShow;
     let timerId = null;
-    if (suspend== true) {
+    if (suspend == true) {
         clearInterval(timerId);
         timerId = null;
-        document.getElementById("slide-show").classList.toggle("is-opend");
+        document.getElementById("slide-show").classList.toggle("is-open");
     }
     else if (!timerId && slideShow == true) {
-        document.getElementById("nav-list").classList.toggle("is-open");
+        var c = document.getElementById("btnSlide");
+        c.classList.toggle("is-active");
         document.getElementById("slide-show").style.display = "block";
         const img_src = ["img/imgae1.jpg", "img/image2.jpg", "img/image3.jpg"];
         let num = 0;
@@ -184,9 +185,9 @@ function slideClick(suspend = false) {
             }
             console.log("img=" + num);
             if (img_src[num] != null) {
-                document.getElementById("slide_img").src = img_src[num];
-                document.getElementById("slide_img").width = "100%";
-                document.getElementById("slide_img").height = "100%";
+                let img = document.getElementById("slide_img");
+                img.src = img_src[num];
+                img.classList.toggle("is-open");
             }
         }
         timerId = setInterval(slide_time, 1000);
@@ -198,7 +199,6 @@ function slideClick(suspend = false) {
 }
 
 let slideShow = false;
-let slideButton = document.getElementById('inqBtn');
-inqBtn.addEventListener('click',  slideClick);
-
+let btnSlide = document.getElementById('btnSlide');
+btnSlide.addEventListener('click',  slideClick);
 
