@@ -34,7 +34,7 @@ function clickBtn(button = null) {
         navToggle.innerHTML = "●";
         var header = document.getElementById("header");
         header.style.paddingTop = "0px";
-        header.style.paddingRight = "200px";
+        header.style.paddingRight = "260px";
         header.style.paddingBottom = "5px";
         header.style.paddingLeft = "0px";
         header.style.boxSizing = "border-box";
@@ -180,19 +180,13 @@ let checkButton = document.getElementById('inqBtn');
 inqBtn.addEventListener('click',  buttonClick);
 
 /**
- * スライドショウ
- * 
- * suspend: これを設定すると停止
+ * スライドショー
  */
-function slideClick(suspend = false) {
+ let slideShow = false;
+ document.getElementById('btnSlide').addEventListener('click', () => {
     slideShow = !slideShow;
     let timerId = null;
-    if (suspend == true) {
-        clearInterval(timerId);
-        timerId = null;
-        document.getElementById("slide-show").classList.toggle("is-open");
-    }
-    else if (!timerId && slideShow == true) {
+    if (!timerId && slideShow == true) {
         var c = document.getElementById("btnSlide");
         c.classList.toggle("is-active");
         document.getElementById("slide-show").style.display = "block";
@@ -216,43 +210,66 @@ function slideClick(suspend = false) {
         timerId = setInterval(slide_time, 1000);
     }
     else {
+        document.getElementById("slide-show").style.display = "none";
         clearInterval(timerId);
         timerId = null;
     }
-}
+});
 
-let slideShow = false;
-let btnSlide = document.getElementById('btnSlide');
-btnSlide.addEventListener('click',  slideClick);
+/**
+ * youtube
+ */
+var youtube = false;
+document.getElementById('btnYoutube').addEventListener('click', () => {
+    youtube = !youtube;
+    if (youtube) {
+        document.getElementById("youtube").style.display = "block";
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+        // API読み込み後にプレーヤーの設定
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player');
+        }
+    }
+    else {
+        document.getElementById("youtube").style.display = "none";
+    }
+});
 
-// youtube
-// function youtubeClick() {
-//     document.getElementById("youtube").style.display = "block";
-//     var c = document.getElementById("youtube");
-//     c = c.nextElementSibling;
-//     (c.classList)[0].style.display = "block";
-
-//     // 2. This code loads the IFrame Player API code asynchronously.
-//     var tag = document.createElement('script');
-
-//     tag.src = "https://www.youtube.com/iframe_api";
-//     var firstScriptTag = document.getElementsByTagName('script')[0];
-//     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-//     // API読み込み後にプレーヤーの設定
-//     var player;
-//     function onYouTubeIframeAPIReady() {
-//         player = new YT.Player('player');
-//     }
-    
-//     // ボタンクリック時の操作
-// //    document.getElementById('play').addEventListener('click', function() {
-//     //     player.playVideo();
-//     // }, false);
-// }
-
-
-// let youtube = false;
-// let btnYoutube = document.getElementById('btnYoutube');
-// btnYoutube.addEventListener('click',  youtubeClick);
+/**
+ * youtubeギャラリー 
+ */
+var ytda = false;
+document.getElementById('btnYtda').addEventListener('click', () => {
+    ytda = !ytda; 
+    if (ytda) {
+        document.getElementById("ytda").style.display = "block";
+        $.ajax({
+            type: 'get',//リクエスト方法
+            url: 'https://www.googleapis.com/youtube/v3/playlistItems',//リクエストURL
+            dataType: 'json',//取得するデータの形式
+            data: {
+                //リクエスト内容に応じたパラメータ
+                part: 'id,snippet,contentDetails,status',
+                playlistId: 'PLpXSTZvNwO4R-oK5ffo00OzJxh19x-Ntg',
+                maxResults: 3,
+                //使用するAPIキー
+                key: 'AIzaSyC_9W5ts5TDJ7ujEidJi9-ZCPG11NbciLY',
+            }
+        }).done(function() {
+            // 成功時の動作を記述
+            var jsonData = JSON.stringify(response, null , "\t");
+            $('#ytdaText').text(jsonData);
+        }).fail(function() {
+            // 失敗時の動作を記述
+            $('#ytdaText').text('失敗しました');
+        });
+    }
+    else {
+        document.getElementById("ytda").style.display = "none";
+    }
+});

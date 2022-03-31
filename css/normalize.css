@@ -64,15 +64,18 @@
         padding: 60px 0 30px;
     /*    background:  rgba(125, 125, 125, 0.95);*/
         text-align: center;
+        font-size: 12px;
+        color: rgb(69, 62, 80);
     }
 
     .nav-list > li a {
         display: block;
         opacity: 0;
         padding: 10px 1em;
-        text-decoration: navy;
+        text-decoration: rgb(154, 154, 165);
         background    : #B0C4DE;              /* BOXの背景色         */
-        color: white;
+        color: rgb(0, 0, 0);
+        font-size: 16px;
     }
 
     #slide-show {
@@ -80,7 +83,7 @@
         margin-top: 0px;
     }
     .cont-slideshow > img {
-        margin-left: 200px;
+        margin-left: 260px;
         width: 400px;
         height: 250px;
     }
@@ -89,13 +92,26 @@
         display: none;
         width: 400px;
         height: 250px;
-        padding: 200px;
+        padding: 260px;
     }
 
     #youtube {
         display: none;
         margin-top: 0px;
-        margin-left: 200px;
+        margin-left: 260px;
+    }
+
+    #cont-ytda {
+        display: none;
+        width: 400px;
+        height: 250px;
+        padding: 260px;
+    }
+
+    #ytda {
+        display: none;
+        margin-top: 0px;
+        margin-left: 260px;
     }
 }
 

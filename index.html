@@ -6,11 +6,13 @@
     <meta name="description" content="Youtube Data API Sample Page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/normalize.css">
+    <script src="./js/moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <header id="header" class="header">
         <nav id="nav" class="nav">
-            <button type="button" id="nav-toggle" class="active nav-toggle" onclick="clickBtn(null); activate()">●</button>
+            <button type="button" id="nav-toggle" class="active nav-toggle" onclick="clickBtn(); activate()">●</button>
                 <ul id="nav-list" class="opacity nav-list">
                     <li>
                         <a class="opacity menu">HOME</a>
@@ -25,7 +27,7 @@
                         <a class="opacity menu">PRODUCTS</a>
                         <div id="btnSlide" class="contents cont-slideshow">スライドショー</div>
                         <div id="btnYoutube" class="contents cont-youtube">Youtube</div>
-                        <div class="contents three">コンテンツ3</div>
+                        <div id="btnYtda" class="contents cont-ytda">Youtubeギャラリー</div>
                         <div class="contents four">コンテンツ4</div>
                         <div class="contents five">コンテンツ5</div>
                     </li>
@@ -48,13 +50,17 @@
     </section>
 
     <section id="youtube" class="cont-youtube">
-<!--        <iframe id="player" width="560" height="315"
-            src="https://www.youtube.com/embed/FlHi8kVlo1o?enablejsapi=1&origin=http%3A%2F%2Fgoogle.com"
+        <iframe id="player" width="560" height="315"
+            src="https://www.youtube.com/embed/FlHi8kVlo1o?enablejsapi=1&origin=http%3A%2F%2Fwww.youtube.com"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
-        <button id="play">再生</button>
-    -->
+    </section>
+
+    <section id="ytda" class="cont-ydtda">
+        <div id="ytdaText"><img src="img/image1.jpg" /></div>
+        <script>
+        </script>
     </section>
 
     <script src="./js/youtubeDataApi.js"></script>
