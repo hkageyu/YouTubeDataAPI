@@ -250,20 +250,35 @@ document.getElementById('btnYtda').addEventListener('click', () => {
         document.getElementById("ytda").style.display = "block";
         $.ajax({
             type: 'get',//リクエスト方法
-            url: 'https://www.googleapis.com/youtube/v3/playlistItems',//リクエストURL
+            url: 'https://www.googleapis.com/youtube/v3/search',//リクエストURL
             dataType: 'json',//取得するデータの形式
             data: {
                 //リクエスト内容に応じたパラメータ
-                part: 'id,snippet,contentDetails,status',
-                playlistId: 'PLpXSTZvNwO4R-oK5ffo00OzJxh19x-Ntg',
-                maxResults: 3,
+                part: 'snippet',
+                channelId: 'UCu0RzIFDAyvV6Fg6areQB-g',
+                order: 'date',
+                maxResults: 10,
                 //使用するAPIキー
                 key: 'AIzaSyC_9W5ts5TDJ7ujEidJi9-ZCPG11NbciLY',
             }
-        }).done(function() {
+        }).done(function(response) {
             // 成功時の動作を記述
-            var jsonData = JSON.stringify(response, null , "\t");
-            $('#ytdaText').text(jsonData);
+            //var jsonData = JSON.stringify(response, null , "\t");
+            //$('#ytdaText').text(jsonData);
+            var html = [];
+            for (var i = 0; i < response.items.length; i++) {
+                var snippet = response.items[i].snippet;
+                var videoId = response.items[i].id.videoId;
+                var videoPublishedAt =snippet.publishedAt;
+                html.push(`
+                <li>
+                <p className="title">タイトル: ${snippet.title}</p>
+                説明: ${snippet.description}<br>
+                <iframe width="280" height="157" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li>
+                `);
+            }
+            $('#ytdaText').html(html.join(''));
         }).fail(function() {
             // 失敗時の動作を記述
             $('#ytdaText').text('失敗しました');
